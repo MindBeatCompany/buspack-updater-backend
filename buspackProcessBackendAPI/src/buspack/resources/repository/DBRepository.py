@@ -51,15 +51,15 @@ class DBRepository():
 
     def updateEnabledPlaces(conexion,dictBusPack):
         try:
-            for id, objeto in dictBusPack.items():
+            for idog, objeto in dictBusPack.items():
                 # Genera la consulta SQL UPDATE utilizando los atributos del objeto
                 consulta = f"UPDATE enabled_places SET "
                 for atributo, valor in objeto.__dict__.items():
                     # Aquí asumimos que los atributos del objeto coinciden con los nombres de las columnas en la tabla
-                    if atributo != 'id':  # Excluimos el atributo 'id'
+                    if atributo != 'id' and atributo != 'idog':  # Excluimos el atributo 'id'
                         consulta += f"{atributo} = '{valor}', "
                 # Elimina la coma extra al final y agrega la condición WHERE
-                consulta = consulta[:-2] + f" WHERE id = {id};"
+                consulta = consulta[:-2] + f" WHERE idog = {idog};"
                 
                 # Ejecuta la consulta
                 conexion.cursor().execute(consulta)
