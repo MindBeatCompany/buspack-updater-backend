@@ -46,7 +46,7 @@ class InserterP2():
         zone_cpToDBFiltered  = zones_cpToDB if zoneCpDB   is None else None
 
         print(zone_cpToDBFiltered)
-        print("aaaaaaaaaa")
+
         print(localityToDBFiltered)
         ## PROCESO 2.3: inserto las listas a la Base de datos
 
