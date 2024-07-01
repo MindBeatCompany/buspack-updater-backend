@@ -31,7 +31,7 @@ class Updater:
         authenticatorService.runCheckAuthentication()
 
         ## Realizo la Autenticacion
-        saitDestinations = SaitDestinations(responseAuthentication)
+        saitDestinations = SaitDestinations(responseAuthentication, 2)
 
         ## Realizo el Pedido de Destinos Habilitados
         httpsForDestinations = HTTPS()
