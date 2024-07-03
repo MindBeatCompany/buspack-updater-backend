@@ -60,21 +60,3 @@ class InserterP2():
         
 
         return("Insercion realizada correctamente")
-
-
-    """
-
-    for idoc, object in dictPlacesToInsert.items():
-        print(idoc)
-
-            ## Actualizo Base de Datos Produccion de Buspack
-
-            # DBRepository.updateEnabledPlaces(conexion, dictBusPack_updated)
-
-            # Cerrar conexion a Base de Datos
-
-    db.closeConnection()
-
-    """
-
-    UpdateExcel.run()
