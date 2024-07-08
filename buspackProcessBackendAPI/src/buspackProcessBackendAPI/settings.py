@@ -100,7 +100,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:8083','http://localhost:8082','http://localhost:8080','http://localhost:8081','http://127.0.0.1:8080','http://127.0.0.1:8081','http://127.0.0.1:8082','http://127.0.0.1:8083','https://back-test.derservicios.com.ar','https://front-test.derservicios.com.ar','http://localhost:3000','https://back-prod.derservicios.com.ar', 'https://front-prod.derservicios.com.ar','https://api-empresas.buspack.com.ar','https://corp.buspack.com.ar/',                                
+    'http://localhost:8083','http://localhost:8082','http://localhost:8080','http://localhost:8081','http://127.0.0.1:8080','http://127.0.0.1:8081','http://127.0.0.1:8082','http://127.0.0.1:8083','https://back-test.derservicios.com.ar','https://front-test.derservicios.com.ar','http://localhost:3000','https://back-prod.derservicios.com.ar', 'https://front-prod.derservicios.com.ar','https://api-empresas.buspack.com.ar','https://corp.buspack.com.ar',                                
     # Agrega aquí otros orígenes permitidos si es necesario
 ]
 
