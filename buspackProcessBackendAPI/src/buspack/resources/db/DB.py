@@ -5,9 +5,9 @@ class DB():
 
 
     def __init__(self):
-        self.host = "192.168.156.131"
-        self.user = "it-soporte"
-        self.password = "Telefono4528*"
+        self.host = "192.168.156.118"
+        self.user = "admin"
+        self.password = "admin_123"
         self.database = "backendnest"
         self.conexion = None
 
