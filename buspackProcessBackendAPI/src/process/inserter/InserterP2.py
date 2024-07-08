@@ -46,7 +46,7 @@ class InserterP2():
         zone_cpToDBFiltered  = zones_cpToDB if zoneCpDB   is None else None
 
         print(zone_cpToDBFiltered)
-        print("aaaaaaaaaa")
+
         print(localityToDBFiltered)
         ## PROCESO 2.3: inserto las listas a la Base de datos
 
@@ -60,21 +60,3 @@ class InserterP2():
         
 
         return("Insercion realizada correctamente")
-
-
-    """
-
-    for idoc, object in dictPlacesToInsert.items():
-        print(idoc)
-
-            ## Actualizo Base de Datos Produccion de Buspack
-
-            # DBRepository.updateEnabledPlaces(conexion, dictBusPack_updated)
-
-            # Cerrar conexion a Base de Datos
-
-    db.closeConnection()
-
-    """
-
-    UpdateExcel.run()

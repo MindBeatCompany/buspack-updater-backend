@@ -16,7 +16,7 @@ def main():
             "forget to activate a virtual environment?"
         ) from exc
     execute_from_command_line(sys.argv)
-    execute_from_command_line(['manage.py', 'runserver', '0.0.0.0:8083']) ## qa es 8082 y prod ed 8083
+    execute_from_command_line(['manage.py', 'runserver', '0.0.0.0:8082']) ## qa es 8082 y prod ed 8083
 
 
 if __name__ == '__main__':
