@@ -44,6 +44,7 @@ class UpdateExcel():
 
             # Declaro las hojas que me importan del Excel
             parametros = workbook["Parametros"]
+            cpa = workbook["CPA"]
             planilla = workbook["Planilla"]
 
             # Obtengo las localidades a actualizar en la planillas en la hoja Parametros
@@ -89,12 +90,28 @@ class UpdateExcel():
             for row in range(1, min(101, ws.max_row + 1)):
                 dataValidationBool.add(ws[f'K{row}'])
 
+            # Declaro tercera y ultima Validacion de datos para CPA
+
+            valores_cpa = [cell.value for cell in cpa["B"] if cell.value is not None]
+
+            len_cpa = len(valores_cpa)
+
+            # Declaro primer Validacion de datos
+            dataValidationCPA = DataValidation(type="list", formula1 = "=CPA!$B$2:$B$" + str(len_cpa))
+
+            # Agrego la Validacion de datos al WorckBook Activo
+            ws.add_data_validation(dataValidationCPA)
+
+            # Aplico la Validacion a todas las celdas de la Columna Q, desde la 2 celda hasta la 100
+            for row in range(1, min(101, ws.max_row + 1)):
+                dataValidationCPA.add(ws[f'Q{row}'])
+
 
             # Sirve para PRUEBAS para poder ver como se va a persistir el Excel en la Base de Datos.
             # Ruta del archivo Excel original
 
-            #ruta_original = "C:/Users/""""""""""""""/updater_Destinations_Buspack/buspackProcessBackendAPI/src/excel/planilla.xlsx"
-            #workbook.save(ruta_original)
+            ##ruta_original = "C:/Users/......./......./buspack-updater-backend/buspackProcessBackendAPI/src/excel/planilla.xlsx"
+            ##workbook.save(ruta_original)
 
             # Perissito en el archivo Temporal todos los cambios
             workbook.save(temp_file_path)
