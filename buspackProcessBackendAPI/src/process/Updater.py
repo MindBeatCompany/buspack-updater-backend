@@ -104,4 +104,4 @@ class Updater:
 
         db.closeConnection()
 
-        ##UpdateExcel.run()
+        UpdateExcel.run()
