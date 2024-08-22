@@ -71,7 +71,7 @@ class UpdateExcel():
             lenparametros = len(valores_parametros)
 
             # Declaro primer Validacion de datos
-            dataValidation = DataValidation(type="list", formula1 = "=Parametros!$A$2:$A$" + str(lenparametros))
+            dataValidation = DataValidation(type="list", formula1 = "=Parametros!$A$2:$A$" + str(lenparametros + 50) )
 
             # Agrego la Validacion de datos al WorckBook Activo
             ws.add_data_validation(dataValidation)
