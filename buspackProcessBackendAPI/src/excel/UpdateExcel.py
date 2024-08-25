@@ -71,7 +71,7 @@ class UpdateExcel():
             lenparametros = len(valores_parametros)
 
             # Declaro primer Validacion de datos
-            dataValidation = DataValidation(type="list", formula1 = "=Parametros!$A$2:$A$" + str(lenparametros))
+            dataValidation = DataValidation(type="list", formula1 = "=Parametros!$A$2:$A$" + str(lenparametros) )
 
             # Agrego la Validacion de datos al WorckBook Activo
             ws.add_data_validation(dataValidation)
@@ -110,8 +110,8 @@ class UpdateExcel():
             # Sirve para PRUEBAS para poder ver como se va a persistir el Excel en la Base de Datos.
             # Ruta del archivo Excel original
 
-            ##ruta_original = "C:/Users/......./......./buspack-updater-backend/buspackProcessBackendAPI/src/excel/planilla.xlsx"
-            ##workbook.save(ruta_original)
+            #ruta_original = "C:/Users/JuanUTN/buspack/buspack-updater-backend/buspackProcessBackendAPI/src/excel/planilla.xlsx"
+            #workbook.save(ruta_original)
 
             # Perissito en el archivo Temporal todos los cambios
             workbook.save(temp_file_path)
