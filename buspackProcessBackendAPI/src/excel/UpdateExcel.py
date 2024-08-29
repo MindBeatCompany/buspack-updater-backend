@@ -116,7 +116,7 @@ class UpdateExcel():
             # Sirve para PRUEBAS para poder ver como se va a persistir el Excel en la Base de Datos.
             # Ruta del archivo Excel original
 
-            #ruta_original = "C:/Users/*******/*********/buspack-updater-backend/buspackProcessBackendAPI/src/excel/planilla.xlsx"
+            #ruta_original = "C:/Users/*****/******/buspack-updater-backend/buspackProcessBackendAPI/src/excel/planilla.xlsx"
             #workbook.save(ruta_original)
 
             # Perissito en el archivo Temporal todos los cambios
