@@ -17,7 +17,8 @@ class DBRepository():
         cursor = conexion.cursor()
         cursor.execute("SELECT * FROM locality")  
         resultados = cursor.fetchall()
-        return resultados
+        return resultados    
+
 
     @staticmethod
     def getLocalitiesByLocalityName(conexion, name, namePlace):
