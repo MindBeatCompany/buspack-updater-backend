@@ -15,27 +15,29 @@ class MapperDB():
 
     @staticmethod
     def mapEnabledPlace(data):  ## Necesio que data sea una lista de diccionario con sus atributos, hace esa conversion en otro metodo aca.
+        enabledPlaces = []
         for elemento in data:
             dictElement = dict( zip( MapperDB.keysEnabledPlaces, elemento ) )
             enabledPlace = EnabledPlace(**dictElement)
-            MapperDB.enabledPlaces.append(enabledPlace)
-        return MapperDB.enabledPlaces
+            enabledPlaces.append(enabledPlace)
+        return enabledPlaces
 
     @staticmethod
     def mapLocalities(data): ## data us dictionary
         
         if data != None:
+            localities = []
             for elemento in data:
                 dictElement = dict( zip( MapperDB.keysLocality, elemento ) )
                 locality = Locality(**dictElement)
-                MapperDB.localities.append(locality)
-            return MapperDB.localities
+                localities.append(locality)
+            return localities
         else:
             return None
 
     @staticmethod
     def mapDestinosToLocalities(data):
-        localities = list()
+        localities = []
         for idoc, destino in data.items():
             locality = DTOInserterP1(idoc, None, destino.Provincia, destino.Nombre, destino.Localidad, destino.Activo, destino.Codigo)
             localities.append(locality)
