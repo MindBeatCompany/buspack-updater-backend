@@ -1,4 +1,5 @@
 
+
 from buspack.resources.db.DB import DB
 from buspack.resources.repository.DBRepository import DBRepository
 from buspack.service.maps.mapperDB.MapperDB import MapperDB
@@ -47,6 +48,10 @@ class UpdateExcel():
             cpa = workbook["CPA"]
             planilla = workbook["Planilla"]
 
+            # Elimina todas las filas anteriores en la hoja "Parametros"
+                        
+            parametros.delete_rows(2, parametros.max_row)
+
             # Obtengo las localidades a actualizar en la planillas en la hoja Parametros
             localities = MapperDB.mapLocalities(DBRepository.getLocalities(conexion))
 
@@ -71,7 +76,7 @@ class UpdateExcel():
             lenparametros = len(valores_parametros)
 
             # Declaro primer Validacion de datos
-            dataValidation = DataValidation(type="list", formula1 = "=Parametros!$A$2:$A$" + str(lenparametros))
+            dataValidation = DataValidation(type="list", formula1 = "=Parametros!$A$2:$A$" + str(lenparametros) )
 
             # Agrego la Validacion de datos al WorckBook Activo
             ws.add_data_validation(dataValidation)
@@ -135,5 +140,3 @@ class UpdateExcel():
             
         else:
             print("No se encontraron datos en la base de datos.")
-        
-    
