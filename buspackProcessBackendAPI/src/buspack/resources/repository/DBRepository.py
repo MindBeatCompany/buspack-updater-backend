@@ -73,6 +73,41 @@ class DBRepository():
             print(f"Error durante el UPDATE en la Base de Datos. Se procede a realizar un ROLLBACK. : {str(e)}")
             # En caso de error, realiza rollback para deshacer los cambios
             conexion.rollback()
+
+
+    def updateLocality(conexion, dictBusPack):
+        try:
+            for idog, objeto in dictBusPack.items():
+                # Genera la consulta SQL UPDATE utilizando los atributos del objeto
+                consulta = f"UPDATE locality SET "
+                enabled_place = ""
+                locality_name = ""
+                for atributo, valor in objeto.__dict__.items():
+                    # Aquí asumimos que los atributos del objeto coinciden con los nombres de las columnas en la tabla
+                    if atributo != 'id' and atributo != 'idog' and atributo != 'code' and atributo != 'type_description':  # Excluimos el atributo 'id'
+                            if atributo == 'place_name':
+                                atributo = 'enabled_place'
+                                enabled_place = valor
+                            elif atributo == 'locality_name':
+                                locality_name = valor
+
+                            consulta += f"{atributo} = '{valor}', "
+                # Elimina la coma extra al final y agrega la condición WHERE
+                consulta = consulta[:-2] + f" WHERE locality_name = '{locality_name}' and enabled_place = '{enabled_place}';"
+                    
+                #Ejecuta la consulta
+                conexion.cursor().execute(consulta)
+                #print(consulta)
+
+            # Realiza commit para confirmar los cambios en la base de datos
+            conexion.commit()
+            print("Actualización exitosa")
+
+        except Exception as e:
+            print(f"Error durante el UPDATE en la tabla 'locality'. Se procede a realizar un ROLLBACK: {str(e)}")
+            # En caso de error, realiza rollback para deshacer los cambios
+            conexion.rollback()
+
     
     def insertPlacesBDBuspackWithDicctionay(conexion, enabled_places, zones_cps, localities):
         try:
