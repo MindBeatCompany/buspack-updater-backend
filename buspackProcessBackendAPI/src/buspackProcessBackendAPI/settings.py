@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-bfy%w#j$1vk^_da3(2kn@01ks4^#cb$_g&mqc9#b*5ne#qg0@m
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['back-test.derservicios.com.ar','front-test.derservicios.com.ar','127.0.0.1','localhost:8080','localhost:8081','localhost:8082','localhost:8083','test.derservicios.com.ar','api-test.derservicios.com.ar','localhost','0.0.0.0',]
+ALLOWED_HOSTS = ['back-test.derservicios.com.ar','front-test.derservicios.com.ar','127.0.0.1','localhost:8080','localhost:8081','localhost:8082','localhost:8083','test.derservicios.com.ar','api-test.derservicios.com.ar','localhost','0.0.0.0','back-prod.derservicios.com.ar','front-prod.derservicios.com.ar','corp.buspack.com.ar','api-empresas.buspack.com.ar']
 
 
 # Application definition
@@ -102,7 +102,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:8083','http://localhost:8082','http://localhost:8080','http://localhost:8081','http://127.0.0.1:8080','http://127.0.0.1:8081','http://127.0.0.1:8082','http://127.0.0.1:8083','https://back-test.derservicios.com.ar','https://front-test.derservicios.com.ar','http://localhost:3000','https://back-prod.derservicios.com.ar', 'https://front-prod.derservicios.com.ar',                                
+    'http://localhost:8083','http://localhost:8082','http://localhost:8080','http://localhost:8081','http://127.0.0.1:8080','http://127.0.0.1:8081','http://127.0.0.1:8082','http://127.0.0.1:8083','https://back-test.derservicios.com.ar','https://front-test.derservicios.com.ar','http://localhost:3000','https://back-prod.derservicios.com.ar', 'https://front-prod.derservicios.com.ar','https://api-empresas.buspack.com.ar','https://corp.buspack.com.ar',                                
     # Agrega aquí otros orígenes permitidos si es necesario
 ]
 

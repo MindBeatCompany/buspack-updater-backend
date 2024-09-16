@@ -52,10 +52,14 @@ class UpdateExcel():
             # Elimina todas las filas anteriores en la hoja "Parametros"
                         
             parametros.delete_rows(2, parametros.max_row - 1)
+
             workbook.save(temp_file_path)
+
 
             # Obtengo las localidades a actualizar en la planillas en la hoja Parametros
             localities = MapperDB.mapLocalities(DBRepository.getLocalities(conexion))
+
+            print("Localidades totales", )
 
             # Me quedo con las activas   
             localitiesActives = list( filter( lambda x : x.isActive == 1 ,localities) )
@@ -117,12 +121,13 @@ class UpdateExcel():
             for row in range(1, min(101, ws.max_row + 1)):
                 dataValidationCPA.add(ws[f'Q{row}'])
 
+            workbook.save(temp_file_path)
 
             # Sirve para PRUEBAS para poder ver como se va a persistir el Excel en la Base de Datos.
             # Ruta del archivo Excel original
 
+
             #ruta_original = "C:/Users/...../...../buspack-updater-backend/buspackProcessBackendAPI/src/excel/planilla.xlsx"
-            #workbook.save(ruta_original)
 
             # Perissito en el archivo Temporal todos los cambios
             workbook.save(temp_file_path)
