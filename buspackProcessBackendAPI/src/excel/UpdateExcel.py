@@ -76,12 +76,17 @@ class UpdateExcel():
                 fila_inicio += 1
 
             # Obtener los valores de la columna B de la hoja "Parametros"
-            valores_parametros = [cell.value for cell in parametros["B"] if cell.value is not None]
+            #valores_parametros = [cell.value for cell in parametros["B"] if cell.value is not None]
             # Obtengo la cantidad
-            lenparametros = len(valores_parametros)
+            #lenparametros = len(valores_parametros)
+            #print(lenparametros)
+            # Declaro primer Validacion de datos
+            #dataValidation = DataValidation(type="list", formula1 = "=Parametros!$A$2:$A$" + str(lenparametros + 1) )
 
             # Declaro primer Validacion de datos
-            dataValidation = DataValidation(type="list", formula1 = "=Parametros!$A$2:$A$" + str(lenparametros) )
+            dataValidation = DataValidation(type="list", formula1 = "=Parametros!$A$2:$A$" + str(2500) )
+            # solo funciona una vez cargado los bytes de una despues no la modifica mas el largo de la lista, entonces el dia que 2000 se quede corta
+            # hay que volver a cargar el excel en bytes y aumentar ese largo y la primera vez q corra ya lo actualiza a esa validacion
 
             # Agrego la Validacion de datos al WorckBook Activo
             ws.add_data_validation(dataValidation)
@@ -122,9 +127,7 @@ class UpdateExcel():
             # Ruta del archivo Excel original
 
 
-            #ruta_original = "C:/Users/*****/******/buspack-updater-backend/buspackProcessBackendAPI/src/excel/planilla.xlsx"
-            #workbook.save(ruta_original)
-
+            #ruta_original = "C:/Users/...../...../buspack-updater-backend/buspackProcessBackendAPI/src/excel/planilla.xlsx"
 
             # Perissito en el archivo Temporal todos los cambios
             workbook.save(temp_file_path)

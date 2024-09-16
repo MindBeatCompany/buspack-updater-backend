@@ -31,7 +31,7 @@ class InserterP1:
         authenticatorService.runCheckAuthentication()
 
         ## Realizo la Autenticacion
-        saitDestinations = SaitDestinations(responseAuthentication, 1)
+        saitDestinations = SaitDestinations(responseAuthentication, 2)
 
         ## Realizo el Pedido de Destinos Habilitados
         httpsForDestinations = HTTPS()

@@ -99,6 +99,7 @@ class Updater:
         ## Actualizo Base de Datos Produccion de Buspack
 
         DBRepository.updateEnabledPlaces(conexion, dictBusPack_updated)
+        DBRepository.updateLocality(conexion, dictBusPack_updated)
 
         # Cerrar conexion a Base de Datos
 
